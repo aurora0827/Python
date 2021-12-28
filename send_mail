@@ -1,0 +1,17 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.utils import formataddr
+
+
+def send_email(xx):
+    msg = MIMEText("你好", 'html', 'utf-8')
+    msg['From'] = formataddr(["浅笑安然", "g1274641544@163.com"])
+    msg['Subject'] = "晚安"
+
+    server = smtplib.SMTP_SSL("smtp.163.com")
+    server.login("g1274641544@163.com", "CLNZKVLIBGFJINHF")
+    server.sendmail("g1274641544@163.com", xx, msg.as_string())
+    server.quit()
+
+
+send_email("g1274641544@163.com")
